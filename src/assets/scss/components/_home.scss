@@ -1,0 +1,41 @@
+.home-page {
+  ul {
+    list-style: none;
+    overflow-y: auto;
+    max-height: 300px;
+    padding: 0;
+
+    @include respond-to($screenTablet) {
+      margin: -10px -10px 20px;
+    }
+
+    li {
+      background: #efefef;
+      min-height: 50px;
+      padding: 0 10px 0 20px;
+
+      @include flex-display();
+      @include align-items(center);
+      @include justify-content(space-between);
+
+      &:nth-of-type(odd) {
+        background: darken(#efefef, 5%);
+        border-top: 1px solid darken(#efefef, 20%);
+        border-bottom: 1px solid darken(#efefef, 20%);
+      }
+
+      &:last-of-type {
+        border-bottom: none;
+      }
+    }
+  }
+
+  .contents {
+    margin: 0 auto;
+    max-width: 400px;
+
+    h4 {
+      padding: 20px 30px;
+    }
+  }
+}

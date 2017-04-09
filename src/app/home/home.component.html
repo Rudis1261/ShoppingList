@@ -1,0 +1,21 @@
+<div class="container" *ngIf="!data">
+  <loading></loading>
+</div>
+
+<div class="container home-page" *ngIf="data">
+  <div class="contents">
+    <h4 *ngIf="data.length == 0" class="text-center">No items yet, add one</h4>
+    <ul *ngIf="data.length > 0">
+      <li *ngFor="let item of data">
+        {{item.$value}}
+        <span class="pull-right btn" (click)="removeItem(item)"><i>Delete</i></span>
+      </li>
+    </ul>
+    <div class="col-12">
+      <form (ngSubmit)="addItem()">
+        <input type="text" name="item" placeholder="Add item" [(ngModel)]="newItem" />
+        <button type="submit" (click)="addItem()">Add Item</button>
+      </form>
+    </div>
+  </div>
+</div>
